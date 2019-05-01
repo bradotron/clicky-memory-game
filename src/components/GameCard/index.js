@@ -1,11 +1,11 @@
 import React from "react";
 
-function Picture(props) {
+function GameCard(props) {
   return (
-    <div>
-      <h4>I'm a picture</h4>
+    <div {...props}>
+      <h4>{props.name}</h4>
     </div> 
   )
 }
 
-export default Picture;
+export default GameCard;
