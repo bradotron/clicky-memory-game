@@ -11,15 +11,24 @@ class Game extends React.Component {
     this.state = {
       score: 0,
       characters: characters.characters,
-      clickedIds: [],
+      clickedIds: []
     };
 
     this.randomizeCharacters = this.randomizeCharacters.bind(this);
     this.handleGameClick = this.handleGameClick.bind(this);
+    this.startGame = this.startGame.bind(this);
   }
 
   componentDidMount() {
+    this.startGame();
+  }
+
+  startGame() {
     this.randomizeCharacters();
+    this.setState({
+      score: 0,
+      clickedIds: [],
+    })
   }
 
   randomizeCharacters() {
@@ -30,12 +39,23 @@ class Game extends React.Component {
   }
 
   handleGameClick(event) {
-    console.log(event.target.getAttribute("data-id"));
-    
+    let clickedId = event.target.getAttribute("data-id");
+    let currentClickedIds = this.state.clickedIds;
+
+    if (this.state.clickedIds.indexOf(clickedId) >= 0) {
+      // GAME OVER
+      console.log("you've clicked this before");
+    } else {
+      this.setState({
+        score: this.state.score + 1
+      });
+      currentClickedIds.push(clickedId);
+      this.setState({
+        characters: currentClickedIds
+      });
+      console.log(this.state.clickedIds);
+    }
     this.randomizeCharacters();
-    // this.setState({
-    //   score: this.state.score + 1,
-    // })
   }
 
   render() {
@@ -53,6 +73,7 @@ class Game extends React.Component {
             />
           );
         })}
+        <button onClick={this.startGame}>Reset Test</button>
       </div>
     );
   }
