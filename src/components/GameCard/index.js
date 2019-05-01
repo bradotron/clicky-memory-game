@@ -2,7 +2,9 @@ import React from "react";
 
 function Picture(props) {
   return (
-    <h4>I'm a picture</h4>
+    <div>
+      <h4>I'm a picture</h4>
+    </div> 
   )
 }
 
