@@ -1,8 +1,8 @@
 import React from "react";
 import GameCard from "../GameCard";
 import characters from "../../utils/characters";
-import {shuffle} from "../../utils/helpers";
-
+import { shuffle } from "../../utils/helpers";
+import ScoreBoard from "../ScoreBoard";
 
 class Game extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Game extends React.Component {
     this.state = {
       score: 0,
       characters: characters.characters,
+      clickedIds: [],
     };
 
     this.randomizeCharacters = this.randomizeCharacters.bind(this);
@@ -19,24 +20,29 @@ class Game extends React.Component {
 
   componentDidMount() {
     this.randomizeCharacters();
-  };
+  }
 
   randomizeCharacters() {
     let shuffled = shuffle(this.state.characters);
     this.setState({
-      characters: shuffled,
+      characters: shuffled
     });
-  };
+  }
 
   handleGameClick(event) {
+    console.log(event.target.getAttribute("data-id"));
+    
     this.randomizeCharacters();
-  };
-
+    // this.setState({
+    //   score: this.state.score + 1,
+    // })
+  }
 
   render() {
     return (
       <div className="container">
-        {this.state.characters.map((character) => {
+        <ScoreBoard score={this.state.score} />
+        {this.state.characters.map(character => {
           return (
             <GameCard
               key={character.id}
