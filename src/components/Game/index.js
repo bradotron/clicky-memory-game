@@ -10,6 +10,7 @@ class Game extends React.Component {
 
     this.state = {
       score: 0,
+      highScore: 0,
       characters: characters.characters,
       clickedIds: []
     };
@@ -27,8 +28,8 @@ class Game extends React.Component {
     this.randomizeCharacters();
     this.setState({
       score: 0,
-      clickedIds: [],
-    })
+      clickedIds: []
+    });
   }
 
   randomizeCharacters() {
@@ -42,9 +43,13 @@ class Game extends React.Component {
     let clickedId = event.target.getAttribute("data-id");
     let currentClickedIds = this.state.clickedIds;
 
+    console.log(event.target);
+
     if (this.state.clickedIds.indexOf(clickedId) >= 0) {
       // GAME OVER
       console.log("you've clicked this before");
+      alert("Game Over");
+      this.startGame();
     } else {
       this.setState({
         score: this.state.score + 1
@@ -60,19 +65,21 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container border border-primary">
         <ScoreBoard score={this.state.score} />
-        {this.state.characters.map(character => {
-          return (
-            <GameCard
-              key={character.id}
-              id={character.id}
-              name={character.name}
-              image={character.image}
-              onClick={this.handleGameClick}
-            />
-          );
-        })}
+        <div className="d-flex flex-wrap justify-content-center">
+          {this.state.characters.map(character => {
+            return (
+              <GameCard
+                key={character.id}
+                id={character.id}
+                name={character.name}
+                image={character.image}
+                onClick={this.handleGameClick}
+              />
+            );
+          })}
+        </div>
         <button onClick={this.startGame}>Reset Test</button>
       </div>
     );
