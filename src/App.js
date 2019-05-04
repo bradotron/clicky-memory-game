@@ -6,7 +6,6 @@ import Game from "./components/Game";
 function App() {
   return (
     <div className="container">
-      <h1>Game Boy</h1>
       <Game />
     </div>
   );
