@@ -17,26 +17,6 @@ The app was created with create-react-app and a couple additions. In the src dir
     |-- package.json
     |-- README.md
     |-- yarn.lock
-    |-- build
-    |   |-- asset-manifest.json
-    |   |-- favicon.ico
-    |   |-- index.html
-    |   |-- manifest.json
-    |   |-- precache-manifest.541bd83fd0c5792ef69bfbf089541c8b.js
-    |   |-- service-worker.js
-    |   |-- images
-    |   |   |-- arya.jpg
-    |   |   |-- brienne.jpg
-    |   |   |-- cersei.jpg
-    |   |   |-- daenerys.jpg
-    |   |   |-- davos.jpg
-    |   |   |-- jamie.jpg
-    |   |   |-- jon.jpg
-    |   |   |-- jorah.jpg
-    |   |   |-- peter.jpg
-    |   |   |-- samwell.jpg
-    |   |   |-- sansa.jpg
-    |   |   |-- tyrion.jpg
     |   |-- static
     |       |-- css
     |       |   |-- main.584f321a.chunk.css
