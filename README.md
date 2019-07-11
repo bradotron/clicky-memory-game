@@ -10,24 +10,13 @@ To play the game, simply click on an image. For each unique image clicked the sc
 # App Organization
 The app was created with create-react-app and a couple additions. In the src directory, components are in the components folder, and a utils folder was created to store javascript files. THe default character information is imported with characters.js, and a randomizing helper function is imported with helpers.js.
 
-## Folder Structure
+## File Structure
 ```
 |-- projectRoot
     |-- .gitignore
     |-- package.json
     |-- README.md
     |-- yarn.lock
-    |   |-- static
-    |       |-- css
-    |       |   |-- main.584f321a.chunk.css
-    |       |   |-- main.584f321a.chunk.css.map
-    |       |-- js
-    |           |-- 2.4e81ba5b.chunk.js
-    |           |-- 2.4e81ba5b.chunk.js.map
-    |           |-- main.62358a4a.chunk.js
-    |           |-- main.62358a4a.chunk.js.map
-    |           |-- runtime~main.83671481.js
-    |           |-- runtime~main.83671481.js.map
     |-- Instructions
     |   |-- homework_instructions.md
     |-- public
